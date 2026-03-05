@@ -13,3 +13,9 @@ Soy Técnico de Nivel Superior en Computación e Informática del **CEDUC UCN**,
 
 ---
 *Estado: Esperando verificación de cuenta AWS para el despliegue de infraestructura.*
+
+## 🔒 Enfoque en Seguridad (DevSecOps)
+Como especialista en ciberseguridad, he diseñado este despliegue siguiendo el **Principio de Mínimo Privilegio**:
+* **Acceso Público Restringido:** Utilizo el recurso `aws_s3_bucket_public_access_block` en Terraform para prevenir fugas de datos accidentales.
+* **Infraestructura como Código (IaC):** La configuración está versionada para permitir auditorías y evitar errores de configuración manual en la consola.
+* **CORS Policy:** La función Lambda incluye cabeceras específicas para permitir únicamente peticiones autorizadas desde el frontend.
