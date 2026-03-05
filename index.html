@@ -64,6 +64,25 @@
             <small>Proyecto Serverless: AWS S3 + Lambda + DynamoDB</small>
         </div>
     </div>
+    <script>
+        // Esta es la función que habla con la nube
+        async function actualizarContador() {
+            try {
+                // NOTA: Esta URL la cambiaremos por la de tu API Gateway cuando AWS esté listo
+                const response = await fetch('URL_DE_TU_API_GATEWAY_AQUI');
+                const data = await response.json();
+
+                // Buscamos el elemento con id "contador" y le ponemos el número real
+                document.getElementById('contador').innerText = data.count;
+            } catch (error) {
+                console.error("Error al obtener las visitas:", error);
+                document.getElementById('contador').innerText = "Error";
+            }
+        }
+
+        // Ejecutamos la función apenas cargue la página
+        actualizarContador();
+    </script>
 </body>
 
 </html>
