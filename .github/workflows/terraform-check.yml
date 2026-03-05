@@ -1,0 +1,27 @@
+name: "Terraform Check"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  terraform:
+    name: "Validar Infraestructura"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Código
+        uses: actions/actions/checkout@v3
+
+      - name: Configurar Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Formateo de Terraform
+        run: terraform fmt -check
+
+      - name: Inicializar Terraform
+        run: terraform init -backend=false
+
+      - name: Validar Terraform
+        run: terraform validate
